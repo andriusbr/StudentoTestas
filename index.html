@@ -1,0 +1,23 @@
+<script>
+function UserAction() {
+    var xhttp = new XMLHttpRequest();
+    var address = document.getElementById('textbox_id').value;
+	console.log('ad='+address);
+    var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyAaYrUA6g99RVJN3sDSu95ajp--ucs0fKA';
+    xhttp.open("POST", url, true);
+    
+    xhttp.send();
+    console.log('st='+xhttp.status);
+    if (xhttp.status === 'OK') {
+       console.log(xhttp.response);
+       console.log(xhttp.responseText);
+    }
+    var response = JSON.parse(xhttp.results);
+
+console.log('r ='+response);
+}
+</script>
+
+<div>Rasti</div>
+Adresas: <input id="textbox_id" type="text" name="fname"><br>
+<button name="name" onclick="UserAction()" value="value" type="submit">Find</button>
